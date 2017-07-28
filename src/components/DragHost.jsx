@@ -7,8 +7,16 @@ class DragHost extends React.Component {
 
     render() {
         return (
-            <Panel title="ExtReact Panel" ref="dragContainer" padding={5} flex={1} shadow>
-                <DragItem ref="dragItemComp" innerRef="dragItem" dragText={this.props.dragText} />
+            <Panel
+                title="ExtReact Panel"
+                ref="dragContainer"
+                padding={5}
+                //flex={1}
+                shadow>
+                <DragItem 
+                    ref="dragItemComp" 
+                    innerRef="dragItem" 
+                    dragText={this.props.dragText} />
             </Panel>
         )
     }
