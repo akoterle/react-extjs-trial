@@ -11,8 +11,9 @@ class DragItem extends React.Component {
 
     render() {
         return (
-            <GridCell
-                ref="dragItem"
+            <Label
+                ref={this.props.innerRef}
+                html={this.props.dragText}
                 style={{
                     width: '130px',
                     height: '130px',
@@ -25,25 +26,10 @@ class DragItem extends React.Component {
                     cursor: 'move'
                 }}
             >
-            {this.props.dragText}
-            </GridCell>
+            </Label>
         )
     }
 
-    componentDidMount() {
-        this.source = new Ext.drag.Source({
-            element: this.refs.dragItem.el,
-            constrain: this.props.dragContainer, //this.refs.dragContainer.el,
-            listeners: {
-                dragmove: this.props.onDragMove, //.bind(this),
-                dragend: this.props.onDragEnd //.bind(this)
-            }
-        });
-    }
-
-    componentWillUnmount() {
-        Ext.destroy(this.source);
-    }
 
 }
 

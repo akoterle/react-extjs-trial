@@ -1,10 +1,15 @@
 import { connect } from 'react-redux'
 import { dragMove, dragEnd } from '../actions'
-import DragContainer from '../components/DragContainer'
+import DragHost from '../components/DragHost'
+
+
+// const DragApp = ({ dragText, onDragMove, onDragEnd }) => {
+
+// }
 
 
 const mapStateToProps = (state) => ({
-    dragText: state.dragText
+    dragText: state.drag.dragText
 })
 
 const mapDispatchToProps = {
@@ -15,6 +20,6 @@ const mapDispatchToProps = {
 const DragApp = connect(
   mapStateToProps,
   mapDispatchToProps
-)(DragContainer)
+)(DragHost)
 
 export default DragApp
