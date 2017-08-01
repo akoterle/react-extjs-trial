@@ -50,7 +50,9 @@
   },
   "devDependencies": {
     "@extjs/reactor-babel-plugin": "^1.0.0",
-    "@extjs/reactor-webpack-plugin": "^1.0.1"
+    "@extjs/reactor-webpack-plugin": "^1.0.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.2"
   },
   "scripts": {
     "start": "node scripts/start.js",
