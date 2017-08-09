@@ -1,16 +1,14 @@
 import React from 'react'
-import DragApp from '../containers/DragApp'
-import logo from '../logo.svg';
-import '../App.css';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import dragApp from '../reducers/index'
+import Layout from './Layout'
+const store = createStore(dragApp)
 
-const App = () => (
-  <div className="App">
-    <div className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <h2>Welcome to ExtReact</h2>
-    </div>
-    <DragApp />
-  </div>
+const  App = () => (
+    <Provider store={store}>
+        <Layout />
+    </Provider>
 )
 
 export default App

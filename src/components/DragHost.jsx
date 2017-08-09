@@ -10,12 +10,12 @@ class DragHost extends React.Component {
             <Panel
                 title="ExtReact Panel"
                 ref="dragContainer"
+                height="100%"
                 padding={5}
-                //flex={1}
                 shadow>
-                <DragItem 
-                    ref="dragItemComp" 
-                    innerRef="dragItem" 
+                <DragItem
+                    ref="dragItemComp"
+                    innerRef="dragItem"
                     dragText={this.props.dragText} />
             </Panel>
         )
@@ -24,7 +24,7 @@ class DragHost extends React.Component {
     componentDidMount() {
         this.source = new Ext.drag.Source({
             element: this.refs.dragItemComp.refs.dragItem.el,
-            constrain: this.refs.dragContainer.el,
+            /*constrain: this.refs.dragContainer.el,*/
             listeners: {
                 dragmove: this.props.onDragMove, //.bind(this),
                 dragend: this.props.onDragEnd //.bind(this)
