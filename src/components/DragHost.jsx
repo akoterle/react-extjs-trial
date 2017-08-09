@@ -22,12 +22,13 @@ class DragHost extends React.Component {
     }
 
     componentDidMount() {
+        const { handlers } = this.props
         this.source = new Ext.drag.Source({
             element: this.refs.dragItemComp.refs.dragItem.el,
             /*constrain: this.refs.dragContainer.el,*/
             listeners: {
-                dragmove: this.props.onDragMove, //.bind(this),
-                dragend: this.props.onDragEnd //.bind(this)
+                dragmove: handlers.dragMove, //.bind(this),
+                dragend: handlers.dragEnd //.bind(this)
             }
         });
     }

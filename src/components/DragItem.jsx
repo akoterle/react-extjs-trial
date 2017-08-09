@@ -1,7 +1,7 @@
 /*global Ext*/
 
 import React from 'react';
-import {Label, Button, GridCell} from '@extjs/ext-react';
+import { Label } from '@extjs/ext-react';
 
 
 Ext.require(['Ext.drag.*']);
@@ -14,6 +14,7 @@ class DragItem extends React.Component {
             <Label
                 ref={this.props.innerRef}
                 html={this.props.dragText}
+                zIndex={100}
                 style={{
                     width: '130px',
                     height: '130px',

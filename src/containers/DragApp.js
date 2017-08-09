@@ -1,20 +1,27 @@
 import { connect } from 'react-redux'
-import { dragMove, dragEnd } from '../actions'
 import DragHost from '../components/DragHost'
-
-
-// const DragApp = ({ dragText, onDragMove, onDragEnd }) => {
-
-// }
-
+import * as actions from '../actions'
 
 const mapStateToProps = (state) => ({
-    dragText: state.drag.dragText
+  dragText: state.drag.dragText
 })
 
-const mapDispatchToProps = {
-  onDragMove: dragMove,
-  onDragEnd: dragEnd
+const mapDispatchToProps = (dispatch) => {
+
+  const dispatchers = function (dispatch) {
+    let dragMove = function (source, info) {
+      dispatch(actions.dragMove(source, info))
+    }
+    let dragEnd = function (source) {
+      dispatch(actions.dragEnd(source))
+    }
+    return {
+      dragMove,
+      dragEnd
+    }
+  }
+
+  return { handlers: dispatchers(dispatch) }
 }
 
 const DragApp = connect(
