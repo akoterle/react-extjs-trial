@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import drag from './drag'
+import fetcher from './fetcher'
 
-const dragApp = combineReducers({
-  drag
+const rootReducers = combineReducers({
+  drag,
+  fetcher
 })
 
-export default dragApp
+export default rootReducers
