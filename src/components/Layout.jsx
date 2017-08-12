@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from '@extjs/ext-react'
 import { connect } from 'react-redux'
-import DragApp from '../containers/DragApp'
+import DragHost from './DragHost'
 import UserGrid from './UserGrid';
 import logo from '../logo.svg';
 import '../App.css';
@@ -9,7 +9,6 @@ import '../App.css';
 class Layout extends React.Component {
 
   render() {
-    const { dispatch } = this.props
     return (
       <div className="App">
         <div className="App-header">
@@ -18,16 +17,12 @@ class Layout extends React.Component {
         </div>
         <Container height={200}>
           <UserGrid />
-
-
         </Container>
-        <DragApp />
-
+        <DragHost />
       </div>
     )
   }
 }
-
 
 const mapStateToProps = state => {
   return ( {...state })

@@ -3,41 +3,36 @@ import React from 'react';
 import { Panel } from '@extjs/ext-react';
 import DragItem from './DragItem';
 
-class DragHost extends React.Component {
+export default class DragHost extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            dragItem: undefined
+        }
+    }
 
     render() {
         return (
             <Panel
                 title="ExtReact Panel"
-                ref="dragContainer"
+                ref={(me) => this.panel = me}
                 height="100%"
                 padding={5}
                 shadow>
-                <DragItem
-                    ref="dragItemComp"
-                    innerRef="dragItem"
-                    dragText={this.props.dragText} />
+                {this.state.dragItem}
             </Panel>
         )
     }
 
     componentDidMount() {
-        const { handlers } = this.props
-        this.source = new Ext.drag.Source({
-            element: this.refs.dragItemComp.refs.dragItem.el,
-            /*constrain: this.refs.dragContainer.el,*/
-            listeners: {
-                dragmove: handlers.dragMove, //.bind(this),
-                dragend: handlers.dragEnd //.bind(this)
+        this.setState((prevState, props) => {
+            return {
+                dragItem: <DragItem
+                    constrain={this.panel.el} />
             }
-        });
+        })
     }
-
-    componentWillUnmount() {
-        Ext.destroy(this.source);
-    }
-
-
 }
 
-export default DragHost
+
